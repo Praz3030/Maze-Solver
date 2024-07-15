@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Solver</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <h1 style="color: white; text-shadow: 0 0 5px yellow; font-size: 3rem">
+      Maze Solver
+    </h1>
+    <div class="wrap">
+      <div class="top">
+        <button onclick="maze.reset();">Generate Another Maze</button>
+        <button onclick="maze.generateRandomEnd();">Generate Random End</button>
+        <button onclick="maze.clearMazeAndReset();">Reset The Maze</button>
+      </div>
+      <div class="bottom">
+        <button onclick="maze.solveAStar();">Solve By A*</button>
+        <button onclick="maze.solveDFS();">Solve By DFS</button>
+        <button onclick="maze.solveBFS();">Solve By BFS</button>
+      </div>
+    </div>
+    <div
+      class="container"
+      style="display: flex; justify-content: space-between"
+    >
+      <div
+        style="
+          width: 35%;
+          padding: 10px;
+          color: white;
+          padding-right: 4rem;
+          padding-bottom: 10rem;
+        "
+      >
+        <span id="description">
+          <h2 style="color: white; text-align: center">
+            Click On the Algorithm
+          </h2>
+          <p style="color: #333">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            quibusdam consectetur enim sint vel officia odit id tempore, in
+            atque repellendus possimus sunt eaque iusto optio reiciendis quam,
+            magnam veniam!
+          </p>
+        </span>
+      </div>
+      <div id="grid" style="width: 31%"></div>
+      <div
+        style="
+          width: 34%;
+          padding: 10px;
+          color: white;
+          padding-left: 4rem;
+          padding-bottom: 10rem;
+        "
+      >
+        <span id="time-complexity">
+          <h2 style="color: white; text-align: center">
+            Using Which You Want to Solve the Maze
+          </h2>
+          <p style="color: #333">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
+            obcaecati deserunt? Veritatis architecto, nisi consequatur incidunt
+            possimus molestiae magni pariatur. Ducimus voluptates harum ea, aut
+            quidem a quia deserunt natus.
+          </p>
+        </span>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      window.onload = function () {
+        window.maze = new Maze({
+          gridElement: document.getElementById("grid"),
+          gridSize: new Point(30, 30),
+          blockSize: 15,
+          onSolved: function () {
+            setTimeout(function () {
+              alert("A maze ing!");
+            }, 200);
+          },
+        });
+        maze.reset();
+      };
+    </script>
+  </body>
+</html>

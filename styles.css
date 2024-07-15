@@ -1,0 +1,151 @@
+body {
+  background: #333;
+  color: #c0f;
+  font-family: Arial;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wrap button {
+  margin: 10px;
+  padding: 10px;
+  background: #c0f;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #c0f;
+}
+
+.wrap button:hover {
+  background: #e0f;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(29, 16px);
+  grid-template-rows: repeat(29, 16px);
+  position: relative;
+  border: 2px solid #c0f;
+  box-shadow: 0 0 20px #c0f;
+}
+
+.block {
+  border: 1px solid #333;
+  position: absolute;
+  margin: 1px;
+  width: 25px;
+  height: 25px;
+  font-size: 8px;
+  display: block;
+  background: #fff;
+  color: #333;
+  transition: background-color 100ms linear;
+}
+
+.block.generated {
+  background: #f0f0f0;
+}
+
+.block.generated.target {
+  background: skyblue;
+}
+
+.block.generated.visited {
+  background: #999;
+}
+
+.block.generated.visited.path {
+  background: cyan;
+}
+
+.block.current {
+  background: black !important;
+}
+
+.block.current::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+
+.block.current::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  top: 5px;
+  right: 5px;
+}
+
+.block.current.target {
+  background: #ffa500 !important;
+}
+
+.block.current.error {
+  background: #f00 !important;
+}
+
+.block.left {
+  border-left: 1px solid transparent;
+}
+
+.block.right {
+  border-right: 1px solid transparent;
+}
+
+.block.bottom {
+  border-bottom: 1px solid transparent;
+}
+
+.block.top {
+  border-top: 1px solid transparent;
+}
